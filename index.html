@@ -211,21 +211,24 @@
 
     /* AVATAR */
     .avatar {
-      width: 150px; height: 150px;
-      border-radius: 50%;
-      border: 2px solid var(--border);
-      overflow: hidden;
-      flex-shrink: 0;
-      background: var(--accent-light);
-      display: flex; align-items: center; justify-content: center;
-    }
+  width: 150px; 
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  flex-shrink: 0;
+  background: var(--surface); /* Cambiado de accent-light para que la foto luzca más */
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
 
-    .avatar-initials {
-      font-family: 'DM Serif Display', serif;
-      font-size: 3.2rem;
-      color: var(--accent);
-    }
-
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Esto hace que la foto se recorte al círculo sin deformarse */
+  display: block;
+}
     /* SECTIONS */
     .section {
       max-width: 880px;
