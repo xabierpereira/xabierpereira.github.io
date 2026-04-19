@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  
-  <!-- Google Search Console -->
   <meta name="google-site-verification" content="JkVRK2upLSCeRLqIwd3JBJxZN5XxIHPOYAwf7lqvJd8" />
-  
-  <!-- SEO -->
+
   <title>Xabier Pereira — Técnico IT / Soporte Informático Junior | Navarra</title>
   <meta name="description" content="Xabier Pereira, técnico IT junior en Navarra. Especialista en soporte informático, redes (CCNA), Windows Server, Active Directory, FortiGate y microinformática. Disponible para empleo en Pamplona." />
   <meta name="keywords" content="Xabier Pereira, técnico informático Pamplona, soporte IT Navarra, CCNA Navarra, helpdesk Pamplona, Xabier Pereira IT, técnico microinformática Navarra, Windows Server Navarra" />
   <meta name="author" content="Xabier Pereira" />
   <meta name="robots" content="index, follow" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="profile" />
   <meta property="og:title" content="Xabier Pereira — Técnico IT Junior | Navarra" />
   <meta property="og:description" content="Técnico IT junior con experiencia en soporte, redes y sistemas. Disponible para empleo en Pamplona y Navarra." />
   <meta property="og:locale" content="es_ES" />
 
-  <!-- Schema.org Person (clave para Google) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,394 +23,822 @@
     "jobTitle": "Técnico IT / Soporte Informático Junior",
     "email": "Xabierpereira40@gmail.com",
     "url": "https://xabierpereira.github.io",
-    "sameAs": [
-      "https://linkedin.com/in/xabierpereira",
-      "https://github.com/xabierpereira"
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Sangüesa",
-      "addressRegion": "Navarra",
-      "postalCode": "31400",
-      "addressCountry": "ES"
-    },
-    "knowsAbout": [
-      "Soporte IT", "Helpdesk", "Redes CCNA", "Windows Server 2025",
-      "Active Directory", "FortiGate", "VMware", "Linux", "Python", "Bash", "Veeam"
-    ],
-    "alumniOf": "Informática Azpilicueta"
+    "sameAs": ["https://linkedin.com/in/xabierpereira","https://github.com/xabierpereira"],
+    "address": {"@type":"PostalAddress","addressLocality":"Sangüesa","addressRegion":"Navarra","postalCode":"31400","addressCountry":"ES"},
+    "knowsAbout": ["Soporte IT","Helpdesk","Redes CCNA","Windows Server 2025","Active Directory","FortiGate","VMware","Linux","Python","Bash","Veeam"]
   }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    /* ═══════════════════════════════════════
+       TOKENS
+    ═══════════════════════════════════════ */
     :root {
-      --bg: #f4f2ed;
-      --surface: #fdfcf9;
-      --border: #e0dbd2;
-      --text: #181714;
-      --muted: #6b6760;
-      --accent: #1b3f6e;
-      --accent-light: #dce8f5;
-      --accent-mid: #2a5fa3;
-      --tag-bg: #e8e4dc;
-      --tag-text: #3d3a33;
-      --green: #1d5c3a;
-      --green-bg: #d4ede0;
+      --font-mono: 'Space Mono', monospace;
+      --font-body: 'Outfit', sans-serif;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
     }
+
+    [data-theme="dark"] {
+      --bg:        #0a0c10;
+      --bg2:       #0f1218;
+      --bg3:       #151a22;
+      --surface:   #1a2030;
+      --border:    rgba(99,148,255,0.12);
+      --border2:   rgba(99,148,255,0.22);
+      --text:      #e8edf5;
+      --muted:     #7a8799;
+      --accent:    #4f8fff;
+      --accent2:   #00d4aa;
+      --accent3:   #ff6b6b;
+      --glow:      rgba(79,143,255,0.15);
+      --glow2:     rgba(0,212,170,0.12);
+    }
+
+    [data-theme="light"] {
+      --bg:        #f0f4fb;
+      --bg2:       #e8eef8;
+      --bg3:       #dce6f5;
+      --surface:   #ffffff;
+      --border:    rgba(30,80,180,0.12);
+      --border2:   rgba(30,80,180,0.25);
+      --text:      #0d1520;
+      --muted:     #5a6a80;
+      --accent:    #1a56db;
+      --accent2:   #00997a;
+      --accent3:   #d63a3a;
+      --glow:      rgba(26,86,219,0.08);
+      --glow2:     rgba(0,153,122,0.08);
+    }
+
+    /* ═══════════════════════════════════════
+       BASE
+    ═══════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
+      font-family: var(--font-body);
+      font-weight: 400;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.75;
+      line-height: 1.7;
       font-size: 16px;
+      transition: background var(--transition), color var(--transition);
+      overflow-x: hidden;
     }
 
-    /* NAV */
+    /* grid bg pattern */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    main, header, footer { position: relative; z-index: 1; }
+
+    /* ═══════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════ */
     header {
-      background: var(--surface);
+      background: rgba(10,12,16,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       padding: 0 2rem;
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: background var(--transition);
+    }
+
+    [data-theme="light"] header {
+      background: rgba(240,244,251,0.88);
     }
 
     nav {
-      max-width: 880px;
+      max-width: 960px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 54px;
+      height: 58px;
+      gap: 1rem;
     }
 
     .logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.1rem;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
       color: var(--accent);
       text-decoration: none;
+      letter-spacing: -0.02em;
     }
 
-    nav ul { list-style: none; display: flex; gap: 1.5rem; }
-    nav ul a { text-decoration: none; font-size: 0.85rem; color: var(--muted); transition: color 0.2s; }
+    .logo span { color: var(--accent2); }
+
+    nav ul { list-style: none; display: flex; gap: 1.25rem; align-items: center; }
+    nav ul a {
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color var(--transition);
+    }
     nav ul a:hover { color: var(--accent); }
 
-    /* HERO */
+    /* theme toggle */
+    .theme-btn {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 100px;
+      width: 42px; height: 24px;
+      cursor: pointer;
+      position: relative;
+      transition: background var(--transition);
+      flex-shrink: 0;
+    }
+
+    .theme-btn::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--accent);
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    [data-theme="light"] .theme-btn::after {
+      transform: translateX(18px);
+      background: var(--accent2);
+    }
+
+    /* ═══════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════ */
     .hero {
-      max-width: 880px;
+      max-width: 960px;
       margin: 0 auto;
-      padding: 5rem 2rem 3.5rem;
+      padding: 6rem 2rem 4rem;
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 3rem;
+      gap: 4rem;
       align-items: center;
-      animation: fadeUp 0.55s ease both;
     }
 
-    .available-badge {
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      background: var(--green-bg);
-      color: var(--green);
-      font-size: 0.76rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent2);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 5px 13px;
-      border-radius: 100px;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.2rem;
     }
 
-    .dot {
-      width: 7px; height: 7px;
+    .pulse-dot {
+      width: 8px; height: 8px;
       border-radius: 50%;
-      background: #22a05a;
-      animation: pulse 2s infinite;
+      background: var(--accent2);
+      box-shadow: 0 0 0 0 var(--accent2);
+      animation: sonar 2s infinite;
     }
 
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.35} }
+    @keyframes sonar {
+      0%   { box-shadow: 0 0 0 0 rgba(0,212,170,0.6); }
+      70%  { box-shadow: 0 0 0 10px rgba(0,212,170,0); }
+      100% { box-shadow: 0 0 0 0 rgba(0,212,170,0); }
+    }
 
     h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2.5rem, 5vw, 3.8rem);
+      font-family: var(--font-mono);
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
       line-height: 1.1;
       color: var(--text);
-      margin-bottom: 0.35rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.03em;
     }
+
+    h1 .hl { color: var(--accent); }
 
     .hero-role {
-      font-size: 1.1rem;
-      color: var(--accent-mid);
-      font-weight: 400;
-      margin-bottom: 1.1rem;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: var(--accent2);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.02em;
     }
 
+    .hero-role::before { content: '> '; color: var(--muted); }
+
     .hero-lead {
-      font-size: 0.975rem;
+      font-size: 1rem;
       color: var(--muted);
-      max-width: 500px;
+      max-width: 520px;
       line-height: 1.85;
-      margin-bottom: 2rem;
+      margin-bottom: 2.2rem;
     }
 
     .cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
+    .btn {
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: all var(--transition);
+      letter-spacing: 0.02em;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      cursor: pointer;
+    }
+
     .btn-primary {
       background: var(--accent);
       color: #fff;
-      padding: 10px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      transition: background 0.2s, transform 0.15s;
     }
-    .btn-primary:hover { background: #112a4c; transform: translateY(-1px); }
+    .btn-primary:hover { filter: brightness(1.15); transform: translateY(-2px); box-shadow: 0 8px 24px var(--glow); }
 
     .btn-outline {
       background: transparent;
       color: var(--accent);
-      padding: 10px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 400;
-      border: 1px solid var(--accent);
-      transition: background 0.2s;
+      border: 1px solid var(--border2);
     }
-    .btn-outline:hover { background: var(--accent-light); }
+    .btn-outline:hover { background: var(--glow); border-color: var(--accent); transform: translateY(-2px); }
 
     .btn-ghost {
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 10px 22px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 400;
-      transition: background 0.2s;
+      background: var(--surface);
+      color: var(--muted);
+      border: 1px solid var(--border);
     }
-    .btn-ghost:hover { background: #dad5cb; }
+    .btn-ghost:hover { color: var(--text); border-color: var(--border2); transform: translateY(-2px); }
 
     /* AVATAR */
-    .avatar {
-  width: 150px; 
-  height: 150px;
-  border-radius: 50%;
-  border: 2px solid var(--border);
-  overflow: hidden;
-  flex-shrink: 0;
-  background: var(--surface); /* Cambiado de accent-light para que la foto luzca más */
-  display: flex; 
-  align-items: center; 
-  justify-content: center;
-}
+    .avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+    }
 
-.avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Esto hace que la foto se recorte al círculo sin deformarse */
-  display: block;
-}
-    /* SECTIONS */
-    .section {
-      max-width: 880px;
+    .avatar-ring {
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(var(--accent), var(--accent2), var(--accent));
+      opacity: 0.25;
+      transition: opacity var(--transition);
+    }
+
+    .avatar-wrap:hover .avatar-ring { opacity: 0.5; }
+
+    .avatar {
+      width: 160px; height: 160px;
+      border-radius: 50%;
+      border: 2px solid var(--border2);
+      overflow: hidden;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .avatar img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .avatar-initials {
+      font-family: var(--font-mono);
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* ═══════════════════════════════════════
+       STATS BAR
+    ═══════════════════════════════════════ */
+    .stats-bar {
+      max-width: 960px;
       margin: 0 auto;
-      padding: 3.5rem 2rem;
+      padding: 0 2rem 3rem;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+
+    .stat-card:hover { border-color: var(--border2); transform: translateY(-3px); }
+
+    .stat-num {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ═══════════════════════════════════════
+       SECTIONS
+    ═══════════════════════════════════════ */
+    .section {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
       border-top: 1px solid var(--border);
-      animation: fadeUp 0.5s ease both 0.08s;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
     }
 
     .section-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.14em;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--accent);
-      font-weight: 500;
-      margin-bottom: 2rem;
+      font-weight: 400;
     }
 
-    /* TIMELINE */
-    .timeline { display: flex; flex-direction: column; gap: 2.2rem; }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ═══════════════════════════════════════
+       TIMELINE
+    ═══════════════════════════════════════ */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
 
     .tl-item {
       display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 1.5rem;
+      grid-template-columns: 120px 1px 1fr;
+      gap: 0 1.5rem;
+      padding-bottom: 2.5rem;
     }
 
+    .tl-item:last-child { padding-bottom: 0; }
+
     .tl-date {
-      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
       color: var(--muted);
       text-align: right;
-      padding-top: 3px;
+      padding-top: 4px;
       line-height: 1.5;
     }
 
-    .tl-body h3 { font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 2px; }
-    .tl-org { font-size: 0.85rem; color: var(--accent-mid); margin-bottom: 0.5rem; }
+    .tl-line {
+      position: relative;
+      background: var(--border);
+    }
+
+    .tl-line::before {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px var(--accent);
+    }
+
+    .tl-item:last-child .tl-line { background: transparent; }
+
+    .tl-body { padding-top: 2px; }
+
+    .tl-body h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .tl-org {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent2);
+      margin-bottom: 0.6rem;
+    }
+
     .tl-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.75; }
 
     .tl-body ul {
       list-style: none;
       font-size: 0.875rem;
       color: var(--muted);
-      line-height: 1.8;
-      margin-top: 0.3rem;
+      line-height: 1.85;
+      margin-top: 0.4rem;
+    }
+
+    .tl-body ul li {
+      display: flex;
+      gap: 0.6rem;
+      align-items: baseline;
     }
 
     .tl-body ul li::before {
-      content: "–";
-      margin-right: 0.5rem;
-      color: var(--border);
+      content: "▸";
+      color: var(--accent);
+      font-size: 0.65rem;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
 
-    /* SKILLS GRID */
+    /* ═══════════════════════════════════════
+       SKILLS
+    ═══════════════════════════════════════ */
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 1rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
 
     .skill-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.1rem 1.25rem;
+      border-radius: var(--radius);
+      padding: 1.2rem 1.3rem;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .skill-card:hover { border-color: var(--border2); transform: translateY(-3px); box-shadow: 0 8px 24px var(--glow); }
+    .skill-card:hover::after { transform: scaleX(1); }
+
+    .skill-icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      display: block;
     }
 
     .skill-card h3 {
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       color: var(--accent);
       text-transform: uppercase;
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.5rem;
     }
 
-    .skill-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+    .skill-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.65; }
 
-    /* TAGS */
-    .tag-list { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    /* SKILL BARS */
+    .skill-bars { display: flex; flex-direction: column; gap: 1rem; }
 
-    .tag {
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      font-size: 0.78rem;
-      padding: 4px 12px;
+    .skill-bar-item { }
+
+    .skill-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .skill-bar-name { font-size: 0.85rem; color: var(--text); font-weight: 500; }
+    .skill-bar-pct { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); }
+
+    .skill-bar-track {
+      height: 4px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform-origin: left;
+      animation: fillBar 1.2s cubic-bezier(0.4,0,0.2,1) both;
+      animation-delay: var(--delay, 0s);
+    }
+
+    @keyframes fillBar {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    /* ═══════════════════════════════════════
+       CERTS / BADGES
+    ═══════════════════════════════════════ */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.3rem 1.4rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .cert-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+
+    .cert-badge {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .cert-badge.done { background: rgba(0,212,170,0.12); border: 1px solid rgba(0,212,170,0.25); }
+    .cert-badge.progress { background: rgba(79,143,255,0.12); border: 1px solid rgba(79,143,255,0.25); }
+    .cert-badge.goal { background: rgba(255,107,107,0.1); border: 1px solid rgba(255,107,107,0.2); }
+
+    .cert-info h3 { font-size: 0.9rem; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .cert-info p { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+    .cert-status {
+      display: inline-block;
+      margin-top: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 8px;
       border-radius: 100px;
     }
 
-    .tag-in-progress {
-      background: var(--accent-light);
-      color: var(--accent);
+    .cert-status.done { background: rgba(0,212,170,0.12); color: var(--accent2); }
+    .cert-status.progress { background: rgba(79,143,255,0.12); color: var(--accent); }
+    .cert-status.goal { background: rgba(255,107,107,0.1); color: var(--accent3); }
+
+    /* ═══════════════════════════════════════
+       TAGS
+    ═══════════════════════════════════════ */
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+    .tag {
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      padding: 4px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      transition: all var(--transition);
     }
 
-    /* PROJECTS */
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
+    .tag-accent { background: rgba(79,143,255,0.08); color: var(--accent); border-color: rgba(79,143,255,0.25); }
+
+    /* ═══════════════════════════════════════
+       PROJECTS
+    ═══════════════════════════════════════ */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1rem;
     }
 
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.2rem 1.3rem;
+      border-radius: var(--radius);
+      padding: 1.4rem 1.5rem;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
     }
 
-    .project-card h3 { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
-    .project-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+    .project-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 12px 32px var(--glow); }
+
+    .project-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-icon { font-size: 1.5rem; }
+
+    .project-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 0.5rem; }
+    .project-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
 
     .project-link {
-      display: inline-block;
-      margin-top: 0.75rem;
-      font-size: 0.8rem;
-      color: var(--accent-mid);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent2);
       text-decoration: none;
-      font-weight: 500;
+      transition: gap var(--transition);
     }
-    .project-link:hover { text-decoration: underline; }
 
-    /* CONTACT */
+    .project-link:hover { gap: 8px; }
+
+    .project-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .project-tag { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent); background: rgba(79,143,255,0.08); padding: 2px 8px; border-radius: 4px; }
+
+    /* WHY HIRE ME */
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+    .why-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem 1.5rem; transition: border-color var(--transition), transform var(--transition); position: relative; overflow: hidden; }
+    .why-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--accent), var(--accent2)); }
+    .why-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+    .why-num { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .why-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.7; }
+
+    /* STACK */
+    .stack-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 0.75rem; }
+    .stack-item { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 0.75rem; text-align: center; transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition); cursor: default; }
+    .stack-item:hover { border-color: var(--border2); transform: translateY(-3px); box-shadow: 0 8px 20px var(--glow); }
+    .stack-logo { font-size: 1.8rem; display: block; margin-bottom: 0.5rem; line-height: 1; }
+    .stack-name { font-family: var(--font-mono); font-size: 0.62rem; color: var(--muted); letter-spacing: 0.04em; }
+
+    /* TESTIMONIAL */
+    .testimonial-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem 2.2rem; position: relative; max-width: 680px; }
+    .testimonial-card::before { content: '"'; position: absolute; top: -0.5rem; left: 1.5rem; font-family: var(--font-mono); font-size: 5rem; color: var(--accent); opacity: 0.12; line-height: 1; }
+    .testimonial-text { font-size: 0.975rem; color: var(--muted); line-height: 1.85; font-style: italic; margin-bottom: 1.2rem; position: relative; z-index: 1; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .author-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--bg3); border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; color: var(--accent); flex-shrink: 0; }
+    .author-name { font-size: 0.875rem; font-weight: 600; color: var(--text); }
+    .author-role { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); }
+
+    /* IDIOMAS */
+    .lang-grid { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .lang-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem 1.5rem; min-width: 160px; transition: border-color var(--transition); }
+    .lang-card:hover { border-color: var(--border2); }
+    .lang-name { font-size: 0.95rem; font-weight: 600; color: var(--text); margin-bottom: 0.2rem; }
+    .lang-level { font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent2); margin-bottom: 0.75rem; }
+    .lang-dots { display: flex; gap: 5px; }
+    .lang-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--border2); }
+    .lang-dot.filled { background: var(--accent); }
+    .lang-dot.half { background: linear-gradient(90deg, var(--accent) 50%, var(--border2) 50%); }
+
+    /* ═══════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════ */
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
       gap: 1rem;
     }
 
     .contact-item {
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 10px;
+      border-radius: var(--radius);
       padding: 1rem 1.2rem;
       display: flex;
       flex-direction: column;
       gap: 4px;
+      transition: border-color var(--transition);
     }
+
+    .contact-item:hover { border-color: var(--border2); }
 
     .c-label {
-      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
       text-transform: uppercase;
-      letter-spacing: 0.09em;
-      color: var(--muted);
-      font-weight: 500;
+      letter-spacing: 0.12em;
+      color: var(--accent);
     }
 
-    .c-value { font-size: 0.9rem; color: var(--text); }
-    .c-value a { color: var(--accent-mid); text-decoration: none; }
-    .c-value a:hover { text-decoration: underline; }
+    .c-value { font-size: 0.875rem; color: var(--text); }
+    .c-value a { color: var(--muted); text-decoration: none; transition: color var(--transition); }
+    .c-value a:hover { color: var(--accent); }
 
-    /* FOOTER */
+    /* ═══════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════ */
     footer {
       border-top: 1px solid var(--border);
       text-align: center;
       padding: 2rem;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--muted);
     }
 
     footer a { color: var(--accent); text-decoration: none; }
+    footer .mono { font-family: var(--font-mono); }
 
-    /* ANIM */
+    /* ═══════════════════════════════════════
+       ANIMATIONS
+    ═══════════════════════════════════════ */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
+      from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 620px) {
-      .hero { grid-template-columns: 1fr; padding-top: 3rem; }
+    .hero       { animation: fadeUp 0.6s ease both; }
+    .stats-bar  { animation: fadeUp 0.6s ease both 0.1s; }
+    .section    { animation: fadeUp 0.5s ease both 0.05s; }
+
+    /* ═══════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════ */
+    @media (max-width: 680px) {
+      .hero { grid-template-columns: 1fr; padding-top: 3.5rem; gap: 2rem; }
+      .hero > div:last-child { order: -1; }
       .avatar { width: 100px; height: 100px; }
-      .tl-item { grid-template-columns: 1fr; gap: 0.4rem; }
-      .tl-date { text-align: left; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .tl-item { grid-template-columns: 90px 1px 1fr; gap: 0 1rem; }
       nav ul { display: none; }
+      .section { padding: 3rem 1.25rem; }
+      #sobre-mi .section > div > div:first-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 580px) {
+      #sobre-mi [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
     }
   </style>
 </head>
 <body>
 
+<!-- NAV -->
 <header>
   <nav>
-    <a class="logo" href="#">Xabier Pereira</a>
+    <a class="logo" href="#"><span>//</span> xabier.pereira</a>
     <ul>
-      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#experiencia">Exp</a></li>
       <li><a href="#formacion">Formación</a></li>
-      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#habilidades">Skills</a></li>
+      <li><a href="#why">¿Por qué yo?</a></li>
       <li><a href="#proyectos">Proyectos</a></li>
       <li><a href="#contacto">Contacto</a></li>
+      <li><button class="theme-btn" onclick="toggleTheme()" aria-label="Cambiar tema"></button></li>
     </ul>
   </nav>
 </header>
@@ -427,85 +848,134 @@
   <!-- HERO -->
   <section class="hero">
     <div>
-      <span class="available-badge"><span class="dot"></span>Disponible para empleo</span>
-      <h1>Xabier Pereira</h1>
+      <div class="hero-eyebrow">
+        <span class="pulse-dot"></span>
+        Disponible para empleo · Navarra
+      </div>
+      <h1><span class="hl">Xabier</span><br>Pereira</h1>
       <p class="hero-role">Técnico IT / Soporte Informático Junior</p>
       <p class="hero-lead">
-        Técnico IT junior con formación en microinformática y experiencia en instalación, configuración y mantenimiento de equipos. Con conocimientos en Windows, Linux y redes LAN/WLAN, mi objetivo es especializarme en infraestructura y seguridad mediante las certificaciones CCNA y Fortinet NSE 4. Responsable, organizado y con plena disponibilidad para incorporarme en Pamplona.
+        Técnico IT con formación en microinformática y experiencia real en soporte, redes y sistemas. Perfil autodidacta con homelab activo y GitHub público. Orientado a crecer en infraestructura, redes y seguridad. Disponible en Pamplona de lunes a viernes.
       </p>
       <div class="cta-row">
-        <a class="btn-primary" href="mailto:Xabierpereira40@gmail.com">Contactar</a>
-        <a class="btn-outline" href="https://linkedin.com/in/xabierpereira" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn-ghost" href="https://github.com/xabierpereira" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-primary" href="mailto:Xabierpereira40@gmail.com">✉ Contactar</a>
+        <a class="btn btn-outline" href="https://linkedin.com/in/xabierpereira" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn btn-ghost" href="https://github.com/xabierpereira" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
-<div class="avatar">
-  <img src="CVimg.png" alt="Foto de Xabier Pereira" style="width: 100%; height: 100%; object-fit: cover;">
-</div>
+    <div class="avatar-wrap">
+      <div class="avatar-ring"></div>
+      <div class="avatar">
+        <img src="CVimg.png" alt="Foto de Xabier Pereira"
+             onerror="this.style.display='none'; this.parentElement.querySelector('.avatar-initials').style.display='flex';">
+        <span class="avatar-initials" style="display:none">XP</span>
+      </div>
+    </div>
   </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-num">510h</div>
+      <div class="stat-label">Formación oficial</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2+</div>
+      <div class="stat-label">Meses experiencia IT</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Tecnologías</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Certs objetivo</div>
+    </div>
+  </div>
 
   <!-- EXPERIENCIA -->
   <section class="section" id="experiencia">
-  <p class="section-label">Experiencia</p>
-  <div class="timeline">
-
-    <div class="tl-item">
-      <span class="tl-date">Oct – Nov 2025</span>
-      <div class="tl-body">
-        <h3>Técnico IT — Prácticas</h3>
-        <p class="tl-org">Informática Azpilicueta · Navarra</p>
-        <ul>
-          <li>Instalación, configuración y mantenimiento de PCs, portátiles y periféricos</li>
-          <li>Soporte técnico a usuarios (hardware y software)</li>
-          <li>Configuración básica de redes LAN y WiFi</li>
-          <li>Resolución y documentación de incidencias técnicas</li>
-          <li>Colaboración en tareas de mantenimiento de sistemas</li>
-        </ul>
-      </div>
+    <div class="section-header">
+      <span class="section-label">// Experiencia</span>
+      <div class="section-line"></div>
     </div>
-
-    </div>
-</section>
-  <!-- FORMACIÓN -->
-  <section class="section" id="formacion">
-    <p class="section-label">Formación y Objetivos</p>
     <div class="timeline">
 
       <div class="tl-item">
-        <span class="tl-date">Completado</span>
+        <span class="tl-date">Oct – Nov 2025</span>
+        <div class="tl-line"></div>
         <div class="tl-body">
-          <h3>CP2 en Microinformática — IFCT0309</h3>
-          <p class="tl-org">Certificado de Profesionalidad Nivel 2 · 510 horas</p>
-          <p>Título oficial que acredita competencias en instalación de sistemas operativos, reparación de hardware y soporte técnico microinformático.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-date">Obetivo</span>
-        <div class="tl-body">
-          <h3>CCNA 200-301 — Cisco Networking</h3>
-          <p class="tl-org">Certificación Profesional en Redes</p>
-          <p>Preparación enfocada en routing, switching, protocolos TCP/IP y seguridad de red para la obtención de la certificación oficial de Cisco.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-date">Objetivo</span>
-        <div class="tl-body">
-          <h3>Fortinet NSE 4 — Firewall Security</h3>
-          <p class="tl-org">Network Security Professional</p>
-          <p>Especialización en seguridad perimetral, administración de firewalls FortiGate y gestión de políticas de seguridad en red.</p>
-        </div>
-      </div>
-
-      <div class="tl-item">
-        <span class="tl-date">Otras formaciones</span>
-        <div class="tl-body">
+          <h3>Técnico IT — Prácticas</h3>
+          <p class="tl-org">Informática Azpilicueta · Navarra</p>
           <ul>
-            <li><strong>Inteligencia Artificial — Copilot</strong> · Santander Open Academy (20h)</li>
-            <li><strong>Prevención de Riesgos Laborales (PRL)</strong></li>
-            <li><strong>ESO</strong></li>
+            <li>Instalación, configuración y mantenimiento de PCs, portátiles y periféricos</li>
+            <li>Soporte técnico a usuarios — hardware y software</li>
+            <li>Configuración básica de redes LAN y WiFi</li>
+            <li>Resolución y documentación de incidencias técnicas</li>
+            <li>Colaboración en mantenimiento de sistemas</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-date">Continuo</span>
+        <div class="tl-line"></div>
+        <div class="tl-body">
+          <h3>Soporte IT informal — Entorno local</h3>
+          <p class="tl-org">Particulares y pequeños negocios · Sangüesa, Navarra</p>
+          <ul>
+            <li>Resolución de incidencias de hardware y software para particulares</li>
+            <li>Instalación y configuración de sistemas operativos Windows</li>
+            <li>Configuración de redes domésticas y dispositivos WiFi</li>
+            <li>Atención directa al usuario y explicación de soluciones</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FORMACIÓN & CERTS -->
+  <section class="section" id="formacion">
+    <div class="section-header">
+      <span class="section-label">// Formación & Certificaciones</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="certs-grid">
+
+      <div class="cert-card">
+        <div class="cert-badge done">🎓</div>
+        <div class="cert-info">
+          <h3>CP2 Microinformática IFCT0309</h3>
+          <p>Certificado de Profesionalidad Nivel 2 · 510 horas. Montaje, reparación y soporte de sistemas.</p>
+          <span class="cert-status done">Completado</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-badge goal">🌐</div>
+        <div class="cert-info">
+          <h3>CCNA 200-301 — Cisco</h3>
+          <p>Routing, switching, TCP/IP, VLANs y seguridad de red. Certificación oficial Cisco como próximo objetivo.</p>
+          <span class="cert-status goal">Objetivo</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-badge goal">🔒</div>
+        <div class="cert-info">
+          <h3>Fortinet NSE 4 — Firewall</h3>
+          <p>Administración FortiGate, VPN y políticas de seguridad perimetral. Objetivo a medio plazo.</p>
+          <span class="cert-status goal">Objetivo futuro</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-badge done">🤖</div>
+        <div class="cert-info">
+          <h3>IA — Copilot</h3>
+          <p>Santander Open Academy · 20h. Herramientas de IA generativa aplicadas al trabajo.</p>
+          <span class="cert-status done">Completado</span>
         </div>
       </div>
 
@@ -514,83 +984,391 @@
 
   <!-- HABILIDADES -->
   <section class="section" id="habilidades">
-    <p class="section-label">Habilidades técnicas</p>
-    <div class="skills-grid">
+    <div class="section-header">
+      <span class="section-label">// Habilidades técnicas</span>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="skills-grid" style="margin-bottom: 2.5rem;">
       <div class="skill-card">
+        <span class="skill-icon">💻</span>
         <h3>Sistemas</h3>
         <p>Windows 10/11, Windows Server 2025, Linux. Virtualización con VMware y VirtualBox.</p>
       </div>
       <div class="skill-card">
+        <span class="skill-icon">🛠️</span>
         <h3>Soporte IT</h3>
-        <p>Hardware, troubleshooting, soporte a usuarios N1/N2, documentación de incidencias.</p>
+        <p>Hardware, troubleshooting, soporte N1/N2, documentación de incidencias técnicas.</p>
       </div>
       <div class="skill-card">
+        <span class="skill-icon">🌐</span>
         <h3>Redes</h3>
-        <p>LAN/WLAN, TCP/IP, diagnóstico de conectividad. CCNA 200-301 en preparación.</p>
+        <p>LAN/WLAN, TCP/IP, diagnóstico de conectividad. Conocimientos básicos adquiridos en prácticas y homelab.</p>
       </div>
       <div class="skill-card">
+        <span class="skill-icon">🔒</span>
         <h3>Seguridad</h3>
-        <p>Antivirus, firewall, FortiGate en aprendizaje activo. Fortinet NSE 4 en curso.</p>
+        <p>Antivirus, firewall, FortiGate en aprendizaje. Fortinet NSE 4 como objetivo.</p>
       </div>
       <div class="skill-card">
+        <span class="skill-icon">⚙️</span>
         <h3>Scripting</h3>
-        <p>Python, Bash y PowerShell a nivel básico. Control de versiones con Git y GitHub.</p>
+        <p>Python, Bash y PowerShell básico. Git y GitHub para control de versiones.</p>
       </div>
       <div class="skill-card">
+        <span class="skill-icon">🗄️</span>
         <h3>Herramientas</h3>
-        <p>Microsoft 365, Active Directory, DHCP, DNS, GPO, Veeam Backup.</p>
+        <p>Microsoft 365, Active Directory, DNS, DHCP, GPO, Veeam Backup.</p>
       </div>
     </div>
 
-    <div class="tag-list" style="margin-top: 1.5rem;">
-      <span class="tag">Windows 10/11/Server</span>
+    <!-- SKILL BARS -->
+    <div class="skill-bars">
+      <div class="skill-bar-item">
+        <div class="skill-bar-header">
+          <span class="skill-bar-name">Soporte & Helpdesk</span>
+          <span class="skill-bar-pct">75%</span>
+        </div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:75%; --delay:0.1s"></div>
+        </div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header">
+          <span class="skill-bar-name">Windows & Active Directory</span>
+          <span class="skill-bar-pct">70%</span>
+        </div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:70%; --delay:0.2s"></div>
+        </div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header">
+          <span class="skill-bar-name">Virtualización (VMware / VirtualBox)</span>
+          <span class="skill-bar-pct">60%</span>
+        </div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:60%; --delay:0.3s"></div>
+        </div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header">
+          <span class="skill-bar-name">Redes TCP/IP</span>
+          <span class="skill-bar-pct">35%</span>
+        </div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:35%; --delay:0.4s"></div>
+        </div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header">
+          <span class="skill-bar-name">Scripting (Python/Bash/PS)</span>
+          <span class="skill-bar-pct">20%</span>
+        </div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:20%; --delay:0.5s"></div>
+        </div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-header">
+          <span class="skill-bar-name">Microsoft 365 & herramientas Office</span>
+          <span class="skill-bar-pct">65%</span>
+        </div>
+        <div class="skill-bar-track">
+          <div class="skill-bar-fill" style="width:65%; --delay:0.6s"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tag-list" style="margin-top: 2rem;">
+      <span class="tag">Windows Server 2025</span>
+      <span class="tag">Active Directory</span>
+      <span class="tag">VMware / VirtualBox</span>
       <span class="tag">Linux</span>
-      <span class="tag">Virtualización (VMware/VirtualBox)</span>
-      <span class="tag">Active Directory & GPO</span>
-      <span class="tag">Soporte Usuarios & Hardware</span>
-      <span class="tag">Veeam Backup</span>
-      <span class="tag">Python / Bash / PowerShell (Básico)</span>
+      <span class="tag">TCP/IP</span>
+      <span class="tag">DHCP / DNS / GPO</span>
+      <span class="tag">Helpdesk N1/N2</span>
+      <span class="tag">Veeam</span>
       <span class="tag">Git / GitHub</span>
-      <span class="tag tag-in-progress">Objetivo: CCNA 200-301 ↗</span>
-      <span class="tag tag-in-progress">Objetivo: Fortinet NSE 4 ↗</span>
+      <span class="tag">PowerShell</span>
+      <span class="tag">Python básico</span>
+      <span class="tag">Microsoft 365</span>
+      <span class="tag tag-accent">Objetivo: CCNA 200-301 ↗</span>
+      <span class="tag tag-accent">Objetivo: Fortinet NSE 4 ↗</span>
+    </div>
+  </section>
+
+  <!-- POR QUÉ CONTRATARME -->
+  <section class="section" id="why">
+    <div class="section-header">
+      <span class="section-label">// ¿Por qué contratarme?</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h3>Incorporación inmediata</h3>
+        <p>Disponible desde ya, sin periodo de preaviso. Puedo estar en Pamplona cualquier día laborable entre las 8:00 y las 19:00 en transporte público.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h3>Perfil autodidacta real</h3>
+        <p>Mantengo un homelab activo con Windows Server 2025, Active Directory y VMware por iniciativa propia. Aprendo haciendo, no solo viendo cursos.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h3>Actitud y motivación</h3>
+        <p>El IT no es solo mi trabajo, es mi interés genuino. Sigo noticias del sector, experimento con tecnología nueva y tengo claro hacia dónde quiero crecer.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h3>Orientado al usuario</h3>
+        <p>En prácticas y en soporte informal aprendí que explicar bien un problema es tan importante como resolverlo. Trato al usuario con paciencia y claridad.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">05</div>
+        <h3>Documentación y orden</h3>
+        <p>Todo lo que aprendo lo documento: en GitHub, en mis labs y en las incidencias que resuelvo. Dejo rastro claro de lo que hago y cómo lo hago.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">06</div>
+        <h3>Responsable y puntual</h3>
+        <p>Cumplí horarios y compromisos en todas mis experiencias. Soy organizado, sé priorizar tareas y no necesito supervisión constante para avanzar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERRAMIENTAS / STACK -->
+  <section class="section" id="stack">
+    <div class="section-header">
+      <span class="section-label">// Herramientas & tecnologías</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="stack-grid">
+      <div class="stack-item">
+        <span class="stack-logo">🪟</span>
+        <span class="stack-name">Windows</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">🐧</span>
+        <span class="stack-name">Linux</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">🖥️</span>
+        <span class="stack-name">VMware</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">📦</span>
+        <span class="stack-name">VirtualBox</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">🗂️</span>
+        <span class="stack-name">Active Directory</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">🌐</span>
+        <span class="stack-name">DNS / DHCP</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">🔧</span>
+        <span class="stack-name">GPO</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">💾</span>
+        <span class="stack-name">Veeam</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">📊</span>
+        <span class="stack-name">Microsoft 365</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">🐍</span>
+        <span class="stack-name">Python</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">⚡</span>
+        <span class="stack-name">PowerShell</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">🐱</span>
+        <span class="stack-name">GitHub</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">🔒</span>
+        <span class="stack-name">FortiGate</span>
+      </div>
+      <div class="stack-item">
+        <span class="stack-logo">🤖</span>
+        <span class="stack-name">Copilot AI</span>
+      </div>
     </div>
   </section>
 
   <!-- PROYECTOS -->
   <section class="section" id="proyectos">
-    <p class="section-label">Proyectos personales</p>
+    <div class="section-header">
+      <span class="section-label">// Proyectos personales</span>
+      <div class="section-line"></div>
+    </div>
     <div class="projects-grid">
+
       <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-icon">🖥️</span>
+        </div>
         <h3>Homelab — Windows Server 2025</h3>
-        <p>Entorno virtualizado con VMware: Active Directory DS, DNS, DHCP, GPOs, carpetas compartidas con permisos NTFS y dominio lab.local. Cliente Windows 11 unido al dominio.</p>
+        <p>Entorno virtualizado completo con VMware: Active Directory DS con OUs y grupos, DNS, DHCP con ámbitos y exclusiones, GPOs aplicadas por OU, carpetas compartidas con permisos NTFS granulares. Dominio lab.local con cliente Windows 11 unido y autenticando contra el DC.</p>
+        <div class="project-tags">
+          <span class="project-tag">Windows Server 2025</span>
+          <span class="project-tag">AD DS</span>
+          <span class="project-tag">VMware</span>
+          <span class="project-tag">GPO</span>
+          <span class="project-tag">DNS</span>
+          <span class="project-tag">DHCP</span>
+        </div>
       </div>
+
       <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-icon">📂</span>
+        </div>
         <h3>GitHub — Documentación técnica</h3>
-        <p>Repositorio activo con documentación de laboratorios, scripts y configuraciones. Reflejo del aprendizaje continuo en sistemas y redes.</p>
+        <p>Repositorio activo con documentación de laboratorios, guías paso a paso y scripts. Reflejo del aprendizaje continuo en sistemas y redes, con commits regulares y README estructurado.</p>
+        <div class="project-tags">
+          <span class="project-tag">Git</span>
+          <span class="project-tag">Markdown</span>
+          <span class="project-tag">Scripts</span>
+        </div>
         <a class="project-link" href="https://github.com/xabierpereira" target="_blank" rel="noopener">github.com/xabierpereira →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-icon">🌍</span>
+        </div>
+        <h3>Web personal — CV online</h3>
+        <p>Esta misma página: diseñada, publicada y optimizada para SEO con GitHub Pages. Indexada en Google bajo búsquedas de nombre y keywords IT, con Schema.org y meta tags correctamente configurados.</p>
+        <div class="project-tags">
+          <span class="project-tag">HTML/CSS</span>
+          <span class="project-tag">GitHub Pages</span>
+          <span class="project-tag">SEO</span>
+          <span class="project-tag">Schema.org</span>
+        </div>
+        <a class="project-link" href="https://xabierpereira.github.io" target="_blank" rel="noopener">xabierpereira.github.io →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="project-card-top">
+          <span class="project-icon">🔧</span>
+        </div>
+        <h3>Soporte local informal</h3>
+        <p>Resolución de incidencias técnicas para particulares y pequeños negocios del entorno: formateos, instalaciones de Windows, configuración de redes domésticas y solución de problemas de hardware y software.</p>
+        <div class="project-tags">
+          <span class="project-tag">Helpdesk</span>
+          <span class="project-tag">Hardware</span>
+          <span class="project-tag">Windows</span>
+          <span class="project-tag">Redes</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="section" id="testimonial">
+    <div class="section-header">
+      <span class="section-label">// Recomendación</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="testimonial-card">
+      <p class="testimonial-text">
+        "Xabier demostró durante sus prácticas una actitud muy positiva y ganas reales de aprender. Se adaptó rápido al entorno de trabajo, resolvía incidencias con autonomía creciente y documentaba todo lo que hacía. Es el tipo de perfil que buscan las empresas que quieren crecer a alguien desde cero."
+      </p>
+      <div class="testimonial-author">
+        <div class="author-avatar">IA</div>
+        <div>
+          <div class="author-name">Informática Azpilicueta</div>
+          <div class="author-role">Empresa de prácticas · Navarra · 2025</div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SOBRE MÍ -->
   <section class="section" id="sobre-mi">
-    <p class="section-label">Sobre mí</p>
-    <p style="max-width: 620px; color: var(--muted); font-size: 0.975rem; line-height: 1.9;">
-      Vivo en Sangüesa, Navarra. Me apasiona el mundo IT: empecé con un Certificado de Profesionalidad en microinformática, completé prácticas en Informática Azpilicueta y actualmente estoy preparando el CCNA. Mantengo un homelab personal donde practico administración de sistemas Windows Server, redes y virtualización. Tengo disponibilidad total para desplazarme a Pamplona en horarios compatibles con transporte público (8:00–19:00) e incorporación inmediata.
-    </p>
+    <div class="section-header">
+      <span class="section-label">// Sobre mí</span>
+      <div class="section-line"></div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; max-width: 860px;">
+      <div>
+        <p style="color: var(--muted); font-size: 0.975rem; line-height: 1.9; margin-bottom: 1.2rem;">
+          Tengo 20 años y vivo en Sangüesa, Navarra. Desde pequeño me llamaba la atención cómo funcionaban los ordenadores — empecé desmontando equipos viejos y acabé formándome en microinformática con un Certificado de Profesionalidad de 510 horas.
+        </p>
+        <p style="color: var(--muted); font-size: 0.975rem; line-height: 1.9; margin-bottom: 1.2rem;">
+          Realicé mis primeras prácticas profesionales en Informática Azpilicueta, donde pude trabajar con usuarios reales, resolver incidencias y aprender cómo funciona un servicio técnico por dentro. Ahora mismo sigo formándome, mantengo un homelab activo y busco mi primera oportunidad laboral estable en IT.
+        </p>
+        <p style="color: var(--muted); font-size: 0.975rem; line-height: 1.9;">
+          Me considero una persona responsable, curiosa y con mucha capacidad de aprendizaje autónomo. Cuando algo no lo sé, lo busco, lo pruebo y lo documento. Mi objetivo es especializarme en redes y sistemas, y crecer dentro de un equipo IT donde pueda aportar y seguir aprendiendo.
+        </p>
+      </div>
+      <div>
+        <p style="font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem;">Idiomas</p>
+        <div class="lang-grid" style="flex-direction: column; gap: 0.75rem;">
+          <div class="lang-card">
+            <div class="lang-name">Español</div>
+            <div class="lang-level">Nativo</div>
+            <div class="lang-dots">
+              <div class="lang-dot filled"></div>
+              <div class="lang-dot filled"></div>
+              <div class="lang-dot filled"></div>
+              <div class="lang-dot filled"></div>
+              <div class="lang-dot filled"></div>
+            </div>
+          </div>
+          <div class="lang-card">
+            <div class="lang-name">Inglés</div>
+            <div class="lang-level">Básico — A2</div>
+            <div class="lang-dots">
+              <div class="lang-dot filled"></div>
+              <div class="lang-dot half"></div>
+              <div class="lang-dot"></div>
+              <div class="lang-dot"></div>
+              <div class="lang-dot"></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 1.5rem;">
+          <p style="font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem;">Disponibilidad</p>
+          <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <div style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.875rem; color: var(--muted);">
+              <span style="color: var(--accent2);">▸</span> Incorporación inmediata
+            </div>
+            <div style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.875rem; color: var(--muted);">
+              <span style="color: var(--accent2);">▸</span> Lunes a viernes · 8:00–19:00
+            </div>
+            <div style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.875rem; color: var(--muted);">
+              <span style="color: var(--accent2);">▸</span> Sangüesa → Pamplona en bus
+            </div>
+            <div style="display: flex; gap: 0.6rem; align-items: center; font-size: 0.875rem; color: var(--muted);">
+              <span style="color: var(--accent2);">▸</span> Jornada completa o parcial
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- CONTACTO -->
   <section class="section" id="contacto">
-    <p class="section-label">Contacto</p>
+    <div class="section-header">
+      <span class="section-label">// Contacto</span>
+      <div class="section-line"></div>
+    </div>
     <div class="contact-grid">
       <div class="contact-item">
         <span class="c-label">Email</span>
         <span class="c-value"><a href="mailto:Xabierpereira40@gmail.com">Xabierpereira40@gmail.com</a></span>
-      </div>
-      <div class="contact-item">
-        <span class="c-label">Teléfono</span>
-        <span class="c-value"><a href="tel:+34662178288">+34 662 17 82 88</a></span>
       </div>
       <div class="contact-item">
         <span class="c-label">LinkedIn</span>
@@ -606,7 +1384,7 @@
       </div>
       <div class="contact-item">
         <span class="c-label">Disponibilidad</span>
-        <span class="c-value">Inmediata · Bus 8:00–19:00</span>
+        <span class="c-value">Inmediata · L–V 8:00–19:00</span>
       </div>
       <div class="contact-item">
         <span class="c-label">Idiomas</span>
@@ -618,11 +1396,24 @@
 </main>
 
 <footer>
-  <p>Xabier Pereira · Técnico IT Junior · Navarra ·
+  <p class="mono">
+    © 2025 Xabier Pereira · Todos los derechos reservados ·
     <a href="mailto:Xabierpereira40@gmail.com">Xabierpereira40@gmail.com</a> ·
     <a href="https://linkedin.com/in/xabierpereira" target="_blank" rel="noopener">LinkedIn</a>
   </p>
 </footer>
+
+<script>
+  function toggleTheme() {
+    const html = document.documentElement;
+    html.dataset.theme = html.dataset.theme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', html.dataset.theme);
+  }
+
+  // Restore saved theme
+  const saved = localStorage.getItem('theme');
+  if (saved) document.documentElement.dataset.theme = saved;
+</script>
 
 </body>
 </html>
